@@ -46,3 +46,40 @@ moop.name = ("Moopasaurus")
 puts moop.name
 moop.set_Info("MoopMoo", "98lbs", "145cm")
 puts moop.get_Info
+
+# Exercise 1
+
+class MyCar
+  attr_reader :speed, :year
+  attr_accessor :color
+
+  def initialize(year, color, model)
+    @year = year
+    @color = color
+    @model = model
+    @speed = 0
+  end
+
+  def accelerate
+    self.speed += 5
+  end
+
+  def brake
+    if speed >= 5
+      self.speed -= 5
+    elsif speed < 5 && speed > 0
+      self.speed -= 1
+    else
+      shutoff
+    end
+  end
+
+  def shutoff
+    self.speed = 0
+  end
+
+  def spraypaint(c)
+    self.color = c
+    puts "You painted the car #{c} and now the car is #{color}"
+  end
+end
